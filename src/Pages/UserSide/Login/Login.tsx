@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Tabs, Tab, Input, Button, Card, CardBody } from "@nextui-org/react";
 import { Ham, Pizza, Soup, UtensilsCrossed } from 'lucide-react';
 import {Select, SelectItem} from "@nextui-org/react";
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -19,7 +20,10 @@ const Login = () => {
         { value: 'frog', label: 'Frog' },
         { value: 'lizard', label: 'Lizard' }
       ];
-
+      const navigae  = useNavigate()
+      const handlehubmit=()=>{
+        navigae("/home")
+      }
     return (
         <div
             className='h-screen grid place-items-center text-white md:grid-cols-2'
@@ -69,7 +73,7 @@ const Login = () => {
     </Select>
 
                                         <div className="flex gap-2 justify-end">
-                                            <Button fullWidth color="warning">
+                                            <Button fullWidth color="warning" onClick={handlehubmit}>
                                                 Go to shop
                                             </Button>
                                         </div>
