@@ -2,10 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Tabs, Tab, Input, Button, Card, CardBody } from "@nextui-org/react";
 import { Ham, Pizza, Soup, UtensilsCrossed } from 'lucide-react';
+import {Select, SelectItem} from "@nextui-org/react";
 
 
 const Login = () => {
     const [selected, setSelected] = React.useState<string | number>("login");
+    const animals = [
+        { value: 'dog', label: 'Dog' },
+        { value: 'cat', label: 'Cat' },
+        { value: 'rabbit', label: 'Rabbit' },
+        { value: 'hamster', label: 'Hamster' },
+        { value: 'turtle', label: 'Turtle' },
+        { value: 'parrot', label: 'Parrot' },
+        { value: 'goldfish', label: 'Goldfish' },
+        { value: 'snake', label: 'Snake' },
+        { value: 'frog', label: 'Frog' },
+        { value: 'lizard', label: 'Lizard' }
+      ];
 
     return (
         <div
@@ -46,12 +59,15 @@ const Login = () => {
                                 <Tab key="login" title="Login">
                                     <form className="flex flex-col gap-4">
                                         <Input isRequired label className='' placeholder="Enter your name" type="text" />
-                                        <Input
-                                            isRequired
-                                            label
-                                            placeholder="Enter your table number"
-                                            type="text"
-                                        />
+                                        <Select
+      items={animals}
+      label=""
+      placeholder="Select an table number   "
+      className="max-w-xs"
+    >
+      {(animal) => <SelectItem key={animal.value}>{animal.label}</SelectItem>}
+    </Select>
+
                                         <div className="flex gap-2 justify-end">
                                             <Button fullWidth color="warning">
                                                 Go to shop
